@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: #151515;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  color: red;
+}
+
+.nav {
+  background-color: #444;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  color: #fff;
+}
+
+.nav .nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav .nav-left a {
+  padding: 8px;
+}
+
+.nav .nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  max-width: 1028px;
+  width: 100%;
+  margin: auto;
+  color: #fff;
+}
+
+.main .sidebar {
+  width: 25%;
+}
+.main .sidebar a {
+  color: #fff;
+}
+
+.main .sidebar a:hover {
+  color: #ccc;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.profile-picture img {
+  width: 100%;
+}
+
+.info {
+  padding: 16px 0;
+}
+
+.info .name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.info .username {
+  color: #ccc;
+}
+
+.actions button {
+  background-color: #444;
+  color: #ccc;
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #999;
+}
+
+.bio {
+  padding: 16px 0;
+}
+
+.links {
+  padding: 16px 0;
+}
+
+/* Activity */
+.main .activity {
+  width: 75%;
+  padding-left: 24px;
+}
+
+.main .pinned-repositories .repositories {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .pinned-repositories .repositories .repository {
+  width: 49%;
+  border: 1px solid #555;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.main .pinned-repositories .repositories .repository .title a {
+  color: aqua;
+}
+
+.main .pinned-repositories .repositories .repository .description {
+  padding: 16px 0;
+}
+.main .pinned-repositories .repositories .repository .repo-info {
+  display: flex;
+}
+
+.main .pinned-repositories .repositories .repository .repo-info div {
+  padding-right: 8px;
+}
+
+/* Button */
+
+.button {
+  padding: 4px;
+}
+.button.outlined {
+  border: 1px solid #eee;
+}
