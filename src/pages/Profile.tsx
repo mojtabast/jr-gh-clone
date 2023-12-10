@@ -1,15 +1,7 @@
-import { useEffect, useState } from "react";
-import { getUser, User } from "../api/user";
+import { useProfile } from "../hooks/useProfile";
 
 function Profile() {
-  const [user, setUser] = useState<User>();
-
-  useEffect(() => {
-    getUser().then((data) => {
-      setUser(data);
-    });
-  }, []);
-
+  const { user, loading, error } = useProfile();
   const profile_picture = user?.avatar_url;
   const name = user?.name;
   const bio = user?.bio;
@@ -51,29 +43,36 @@ function Profile() {
 
       <div className="main">
         <div className="sidebar">
-          <div className="profile-picture">
-            <img src={profile_picture} alt="" />
-          </div>
+          {error ? "An error has been occured" : null}
+          {loading ? (
+            "loading..."
+          ) : (
+            <>
+              <div className="profile-picture">
+                <img src={profile_picture} alt="" />
+              </div>
 
-          <div className="info">
-            <div className="name">{name}</div>
-            <div className="username">mojtabast</div>
-          </div>
+              <div className="info">
+                <div className="name">{name}</div>
+                <div className="username">mojtabast</div>
+              </div>
 
-          <div className="actions">
-            <button>Follow</button>
-          </div>
+              <div className="actions">
+                <button>Follow</button>
+              </div>
 
-          <div className="bio">{bio}</div>
+              <div className="bio">{bio}</div>
 
-          <div className="subscribers">
-            <a href="/"> 10 followers</a>
-            <a href="/"> 20 following</a>
-          </div>
+              <div className="subscribers">
+                <a href="/"> 10 followers</a>
+                <a href="/"> 20 following</a>
+              </div>
 
-          <div className="links">
-            <a href="http://mojtabast.com">http://mojtabast.com</a>
-          </div>
+              <div className="links">
+                <a href="http://mojtabast.com">http://mojtabast.com</a>
+              </div>
+            </>
+          )}
         </div>
         <div className="activity">
           <div className="pinned-repositories">

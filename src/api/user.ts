@@ -1,7 +1,7 @@
 import { Octokit } from "octokit";
 
-const token = "YOUR_TOKEN";
-const username = "grabbou";
+// Create a personal access token at https://github.com/settings/tokens/new?scopes=repo
+const token = "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";
 
 export interface User {
   avatar_url: string;
@@ -13,7 +13,7 @@ export interface User {
   following: number;
 }
 
-async function getUser(): Promise<User> {
+async function getUser(username: string): Promise<User> {
   const octokit = new Octokit({
     auth: token,
   });
@@ -24,6 +24,8 @@ async function getUser(): Promise<User> {
       "X-GitHub-Api-Version": "2022-11-28",
     },
   });
+
+  console.log({ response });
 
   return response.data;
 }
