@@ -6,6 +6,8 @@ function Profile() {
   const name = user?.name;
   const bio = user?.bio;
 
+  const hasData = !error && !loading && user;
+
   return (
     <div className="profile-page">
       <header className="nav">
@@ -44,9 +46,9 @@ function Profile() {
       <div className="main">
         <div className="sidebar">
           {error ? "An error has been occured" : null}
-          {loading ? (
-            "loading..."
-          ) : (
+          {loading ? "loading..." : null}
+
+          {hasData ? (
             <>
               <div className="profile-picture">
                 <img src={profile_picture} alt="" />
@@ -72,7 +74,7 @@ function Profile() {
                 <a href="http://mojtabast.com">http://mojtabast.com</a>
               </div>
             </>
-          )}
+          ) : null}
         </div>
         <div className="activity">
           <div className="pinned-repositories">

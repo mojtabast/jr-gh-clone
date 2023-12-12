@@ -82,7 +82,7 @@ function useProfile() {
           },
         });
       })
-      .catch(() => {
+      .catch((e) => {
         dispatch({
           type: "update_error",
           payload: {
