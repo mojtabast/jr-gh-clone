@@ -1,8 +1,6 @@
 import { useEffect, useReducer, useState } from "react";
 import { getUser, User } from "../api/user";
 
-const username = "madler";
-
 interface Action {
   type: string;
   payload: any;
@@ -44,7 +42,7 @@ function reducer(state: State, action: Action) {
   return state;
 }
 
-function useProfile() {
+function useProfile(username: string) {
   // const [user, setUser] = useState<User>();
   // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(false);

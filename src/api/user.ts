@@ -1,7 +1,7 @@
 import { Octokit } from "octokit";
 
 // Create a personal access token at https://github.com/settings/tokens/new?scopes=repo
-const token = "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";
+const token = "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";
 
 export interface User {
   avatar_url: string;

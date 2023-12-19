@@ -1,10 +1,19 @@
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { useProfile } from "../hooks/useProfile";
 
 function Profile() {
-  const { user, loading, error } = useProfile();
+  const params = useParams();
+  const username = params.username || "";
+  const { user, loading, error } = useProfile(username);
+
   const profile_picture = user?.avatar_url;
   const name = user?.name;
   const bio = user?.bio;
+
+  let [searchParams] = useSearchParams();
+  const searchValue = searchParams.get("my_value");
+
+  console.log(params);
 
   const hasData = !error && !loading && user;
 
@@ -31,7 +40,11 @@ function Profile() {
         </div>
         <div className="nav-right">
           <div className="search-input">
-            <input type="text" placeholder="search..." />
+            <input
+              type="text"
+              placeholder="search..."
+              value={searchValue || ""}
+            />
           </div>
 
           <a href="/" className="button">
@@ -83,7 +96,7 @@ function Profile() {
             <div className="repositories">
               <div className="repository">
                 <div className="title">
-                  <a href="/">test repository</a>
+                  <Link to="/mojtabast/folan">test repository</Link>
                 </div>
 
                 <div className="description">
